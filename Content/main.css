@@ -178,11 +178,12 @@ ul {
 }
 
 .revealed {
-    background-color: #FFFFFF !important;   
+    background-color: white !important;
     border: darkslategrey 1px solid !important;    
 }
 
 .gameboard button {
+    background-color: buttonface;
     font-size: 14px;
     float: left;
     margin-right: 3px;
