@@ -1,5 +1,5 @@
 Minesweeper
-===========
+==========>
 
 JavaScript Minesweeper Implementation
 
