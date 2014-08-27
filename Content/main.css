@@ -175,7 +175,6 @@ ul {
     border-radius: 4px 4px 4px 4px;
     -moz-border-radius: 4px 4px 4px 4px;
     -webkit-border-radius: 4px 4px 4px 4px;
-    
 }
 
 .revealed {
@@ -191,6 +190,7 @@ ul {
     border-radius: 4px 4px 4px 4px;
     -moz-border-radius: 4px 4px 4px 4px;
     -webkit-border-radius: 4px 4px 4px 4px;
+    -webkit-user-select: none;
     outline: none;
 }
 
