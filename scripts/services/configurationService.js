@@ -75,7 +75,8 @@
         board = "gameboard";
  
     //UI EVENTS
-    var mouse_down = 'mousedown';
+    var mouse_down = 'mousedown',
+        tap_hold = 'taphold';
 
     //VALIDATION
     var validation_messages_mines = "Mines must be less than or equal to",
@@ -138,7 +139,8 @@
         },
         UI: {
             EVENTS: {
-                MOUSE_DOWN: mouse_down
+                MOUSE_DOWN: mouse_down,
+                TAP_HOLD: tap_hold
             },
             SQUARE: {
                 ELEMENT: {

@@ -6,10 +6,8 @@
         boardService = require('boardService'),
         uiService = require('uiService'),
         dataService = require('dataService'),
-        timerService = require('timerService'),
-        utils = require('utilitiesService'),
-        config = require('configurationService');
-    //End Requirements   
+        timerService = require('timerService');
+    //End Requirements
 
     var currentGame,
         gameOptions,
@@ -117,6 +115,7 @@
             
             //Add square action event            
             uiService.bindMouseDownEvent(uiSquare, squareActionHandler);
+            uiService.bindTapHoldEvent(uiSquare, squareActionHandler);
             currentGame.board.addSquare(vSquare);
             uiBoard.minefieldContainer.append(uiSquare);
         }
