@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Minesweeper</title>
+
+    <link href="Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/main.css" rel="stylesheet" />
+    <link href="images/favicon.ico" rel="icon" />
+
+</head>
+<body>
+    
+    <!-- Game title and icon -->
+    <h1><i class='fa fa-flag icon-red'></i><span class="gameTitle"> Minesweeper</span></h1> 
+    
+    <!-- Shows during game selection -->
+    <div id="gameLevels" class="divGameLevels">           
+        <input type="image" src="images/easy.png" name="gameLevel" value="Easy" />
+        <input type="image" src="images/medium.png" name="gameLevel" value="Medium" />
+        <input type="image" src="images/expert.png" name="gameLevel" value="Expert" />
+        <input type="image" src="images/custom.png" name="gameLevel" value="Custom" />
+        <button id="About" class="btn-sm btn-info float-right fa fa-file-text about"> about this game...</button>
+   </div>
+    <!-- Shows during game selection -->
+
+    <!-- Shows during game play-->
+    <div id="gameContainer" style="display:none">
+        <div id="divBoard" class="gameboard"></div>
+
+        <br />
+        <div id="divGameBoardControls">
+            <div id="divGameBoardButtons">
+                <button id="Home" class="btn btn-sm btn-primary mainGameButtons">Home</button>
+                <button id="NewGame" class="btn btn-sm btn-primary mainGameButtons">New Game</button>
+             </div>
+            <div id="divIndicators">
+                <div id="div1" class="displayIcon"><label><i class="fa fa-clock-o"></i></label></div>
+                <div id="div2" class="displayText"><label id="lblTimer"></label></div>
+                <div id="div3" class="displayIcon"><label><i class="fa fa-flag-o"></i></label></div>
+                <div id="div4" class="displayText"><label id="lblFlags"></label></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Options Model HTML -->
+    <div id="optionsModal" class="modal fade" >
+        <div class="modal-dialog ">
+            <div class="modal-content">
+
+                <div class="modal-header modalBackgroundAliceBlue">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title blueText">Custom Game Options</h4>
+                </div>
+                <div class="modal-body">                    
+                    
+                    <form id="optionsForm" class="form-horizontal" 
+                    data-bv-message="This value is not valid"
+                    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">                               
+          
+                        <div class="form-group">
+                        <label for="customRows" class="control-label col-xs-2">Rows</label>
+                        <div class="col-xs-10">
+                            <input type="number" id="customRows" class="form-control" name="customRows"
+                                required 
+                                value="9"
+                                min="1"
+                                max="22"
+                                data-bv-notempty-message="Rows is a required field"       
+                                data-bv-greaterthan-inclusive="true"                         
+                                data-bv-greaterthan-message="Rows must be greater than or equal to 1"
+                                placeholder="Number of Rows (1-22)"                                 
+                                data-bv-lessthan-inclusive="true"
+                                data-bv-lessthan-message="Rows must must be less than or equal to 24" />
+                        </div>
+                        </div>                          
+
+			            <div class="form-group">
+                        <label for="customColumns" class="control-label col-xs-2">Columns</label>
+                        <div class="col-xs-10">
+                            <input type="number" id="customColumns" class="form-control" name="customColumns"
+                                required
+                                value="9"
+                                min="3"
+                                max="30"
+                                data-bv-notempty-message="Columns is a required field"
+                                data-bv-greaterthan-inclusive="true"
+                                data-bv-greaterthan-message="Columns must be greater than or equal to 3"
+                                placeholder="Number of Columns (3-30)"                                 
+                                data-bv-lessthan-inclusive="true"
+                                data-bv-lessthan-message="Columns must be less than 30" />
+                        </div>
+                        </div>   
+          
+                        <div class="form-group">
+                        <label for="mines" class="control-label col-xs-2">Mines</label>
+                        <div class="col-xs-10">
+                            <input type="number" id="customMines" class="form-control" name="customMines"
+                                required
+                                value="10"
+                                min="1"
+                                max="40"
+                                data-bv-notempty-message="Mines is a required field"                                
+                                placeholder="Number of Mines" />
+                        </div>
+                        </div>  
+
+                        <div class="form-group">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-10">
+                            <div id="optionsMessages"></div>
+                        </div>
+                        </div>
+                </form>                                     
+                </div>
+                <div class="modal-footer modalBackgroundAliceBlue">
+                    <button id="CloseOptions" type="button" class="btn btn-default modalCancelButton" data-dismiss="modal">Cancel</button>
+                    <button id="SaveOptions" type="button" class="btn btn-primary">Play Game</button>
+                </div>                
+
+            </div>
+        </div>
+    </div>
+    <!-- End Options Modal -->
+
+    <!-- About Model HTML -->
+    <div id="aboutModal" class="modal fade" >
+        <div class="modal-dialog blueText">
+            <div class="modal-content">
+                <div class="modal-header modalBackgroundAliceBlue">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">About This Game</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>Created By: Gary Hill</h5>
+                    <p>This is my version of an old favorite.  I take no credit for the rules, object, or graphics displayed in this game. My intention was solely to increase my knowledge of client side development technologies while working on a fun project.  I used the following technologies and patterns in the creation of this game...</p>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>jQuery v1.11</li>
+                        <li>Bootstrap v3.2</li>
+                        <li>BootstrapValidator v.05</li>
+                        <li>Font Awesome v4.1</li>
+                        <li>RequireJS v2.1.14</li>
+                        <li>Modernizr v2.8.3</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Revealing Module Pattern</li>
+                        <li>Publish/Subscriber Pattern</li>
+                    </ul>
+                </div>
+                <div class="modal-footer modalBackgroundAliceBlue">
+                    <button id="CloseAbout" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Modal -->
+
+    <!-- Results Model HTML -->
+    <div id="resultsModal" class="modal fade resultsModal" >
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header modalBackgroundAliceBlue">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 id="resultsTitle" class="modal-title"></h4>
+                </div>
+                <div class="modal-body">                    
+                   <table id="resultsTable" class="table table-striped" >
+                    <tbody>
+                      <tr>
+                          <td>Outcome:</td>               
+                          <td class="text-right"><div id="resultsOutcome"></div></td>
+                      </tr>
+                      <tr>
+                          <td>Level:</td>               
+                          <td class="text-right"><div id="resultsLevel"></div></td>
+                      </tr>
+                      <tr>
+                          <td>Your Time:</td>               
+                          <td class="text-right"><div id="resultsTime"></div></td>
+                      </tr>
+                      <tr>
+                          <td>Mines Cleared:</td>
+                          <td class="text-right"><div id="resultsMinesCleared"></div></td>
+                      </tr>
+                      <tr id="resultsRecordRow">
+                          <td>Record Time:</td>
+                          <td class="text-right"><div id="resultsRecordTime"></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                                     
+                </div>
+                <div class="modal-footer modalBackgroundAliceBlue">
+                    <button id="CloseResults" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Results Modal -->
+    
+    <!-- 
+    Load the require library and feed it my configuration
+    Require/execute the config and then once loaded require minsweeper.js (main starting point for the app) 
+    -->
+    <script data-main="scripts/startup/require.config" src="scripts/x-ternal/require-2.1.14.min.js"></script>
+        <script>
+            require(['require.config'], function () {               
+                require(['minesweeper']);
+            });
+    </script>
+
+</body>
+</html>
