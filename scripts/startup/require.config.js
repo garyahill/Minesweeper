@@ -13,6 +13,10 @@
             '//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min',
             'x-ternal/bootstrapValidator.min'  // local fallback
         ],
+        'jqueryMobile': [
+            '//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min',
+            'x-ternal/jquery.mobile-1.4.3.min'
+        ],  // local fallback
         'modernizr': 'x-ternal/modernizr.custom',
         'configurationService': 'services/configurationService',
         'utilitiesService': 'services/utilitiesService',
@@ -35,6 +39,9 @@
             deps: ['jquery']
         },
         'bootstrapValidator': {
+            deps: ['jquery']
+        },
+        'jqueryMobile': {
             deps: ['jquery']
         }
     }

@@ -1,12 +1,15 @@
 ﻿define(function (require) {
     //Requirements alternative syntax (looks better on modules with many requirements)
+    require('jqueryMobile');
+
     var game = require('game'),
         Square = require('square'),
         MineField = require('minefield'),
         boardService = require('boardService'),
         uiService = require('uiService'),
         dataService = require('dataService'),
-        timerService = require('timerService');
+        timerService = require('timerService'),
+        config = require('configurationService');
     //End Requirements
 
     var currentGame,
@@ -104,7 +107,12 @@
     }
 
     function drawBoard() {
-       
+
+        //Events for mouse click and mobile tap and hold
+        var events = [];
+        events.push(config.UI.EVENTS.MOUSE_DOWN);
+        events.push(config.UI.EVENTS.TAP_HOLD);
+
         //build the board
         for (var i = 0; i < currentGame.squareCount; i++) {
 
@@ -113,9 +121,8 @@
             var uiSquare = uiService.createUISquare(gameOptions.squareSize);
             squareObjectHash.setPair(uiSquare, vSquare);
             
-            //Add square action event            
-            uiService.bindMouseDownEvent(uiSquare, squareActionHandler);
-            uiService.bindTapHoldEvent(uiSquare, squareActionHandler);
+            //Add square action events
+            uiService.bindEvents(uiSquare, events, squareActionHandler);
             currentGame.board.addSquare(vSquare);
             uiBoard.minefieldContainer.append(uiSquare);
         }
