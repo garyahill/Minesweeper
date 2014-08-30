@@ -29,24 +29,25 @@
                 cache[id].push(fn);
             }
         },
-        unsub: function (id, fn) {
-            var index;
-
-            //if message id doesn't exist exit
-            if (!id) return;
-
-            //if message id exists check for function; if no function provided then reset entire array
-            if (!fn) {
-                cache[id] = [];
-            }
-            else {
-                //if function is provided, find it and create a new array without it
-                index = cache[id].indexOf(fn);
-                if (index > -1) {
-                    cache[id] = cache[id].slice(0, index).concat(cache[id].slice(index + 1));
-                }
-            }
-        },
+        //Might use this later
+            //        unsub: function (id, fn) {
+            //            var index;
+            //
+            //            //if message id doesn't exist exit
+            //            if (!id) return;
+            //
+            //            //if message id exists check for function; if no function provided then reset entire array
+            //            if (!fn) {
+            //                cache[id] = [];
+            //            }
+            //            else {
+            //                //if function is provided, find it and create a new array without it
+            //                index = cache[id].indexOf(fn);
+            //                if (index > -1) {
+            //                    cache[id] = cache[id].slice(0, index).concat(cache[id].slice(index + 1));
+            //                }
+            //            }
+            //        },
         reset: function () {
             cache = {};
         }
