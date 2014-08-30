@@ -24,7 +24,7 @@
         'timerService': 'services/timerService',
         'dataService': 'services/dataService',
         'uiService': 'services/uiService',
-        'pubsubService': 'services/pubsubService',
+        'pubSubService': 'services/pubSubService',
         'validationService': 'services/validationService',
         'options': 'domain/options',
         'square': 'domain/square',

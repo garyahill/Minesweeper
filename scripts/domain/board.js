@@ -1,4 +1,4 @@
-﻿define(['pubsubService', 'configurationService'], function (pubSub, config) {
+﻿define(['pubSubService', 'configurationService'], function (pubSub, config) {
 
     return function () {
 
@@ -6,7 +6,7 @@
             mineSquares = [],
             stateChangedSquares = [],
             revealedSquares = 0;
-        
+
         //Private Methods
         var _addStateChangedSquare = function (sq) {
                 return stateChangedSquares.push(sq);
@@ -31,8 +31,8 @@
 
         //Public Methods
         var addSquare = function (sq) {
-            squares[squares.length] = sq;
-        },
+                squares[squares.length] = sq;
+            },
             getStateChangedSquares = function () {
                 var returnVal = stateChangedSquares;
                 stateChangedSquares = [];
@@ -65,8 +65,8 @@
                 }
                 return eventData;
             };
-                
-   //PubSub Subscriptions
+
+        //PubSub Subscriptions
         pubSub.sub(config.PUBSUB.SQUARE_STATE_CHANGED, _addStateChangedSquare);
         pubSub.sub(config.PUBSUB.REVEALED_SQUARE_COUNT_CHANGED, _incrementRevealedSquares);
 

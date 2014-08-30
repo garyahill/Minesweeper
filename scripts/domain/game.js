@@ -1,4 +1,4 @@
-﻿define(['board', 'pubsubService', 'configurationService'], function (Board, pubSub, config) {
+﻿define(['board', 'pubSubService', 'configurationService'], function (Board, pubSub, config) {
 
     var instance;  // Singleton Instance
 
@@ -6,13 +6,15 @@
 
         var mineCount = options.mines,
             flagCount = options.mines;
-            clearedMineCount = 0,
+            //noinspection CommaExpressionJS
+        clearedMineCount = 0,
             columns = options.columns,
             rows = options.rows,
             squareCount = options.squareCount,
             timeCounter = 0,
-            difficultyLevel = options.difficultyLevel,
-            board = new Board();
+            difficultyLevel = options.difficultyLevel;
+
+        var board = new Board();
 
         //Private Methods (all close over "instance" before being shipped to pubsub)
         var _allMinesCleared = function () {
@@ -53,7 +55,7 @@
         },
         killInstance: function () {
             if (instance !== undefined) {
-                //kill pubsub subscriptions; recreate on new game
+                //kill pubSub subscriptions; recreate on new game
                 pubSub.reset();
                 instance = null;
             }

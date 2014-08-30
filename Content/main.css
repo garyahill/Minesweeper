@@ -1,4 +1,4 @@
-﻿body {
+body {
     padding-left: 20px;
 }
 
@@ -68,7 +68,6 @@ ul {
     margin-left: 7px;
     text-align: right;
     float: left;
-    /*background-color: lightgray;  for debugging only*/
 }
 #divGameBoardControls .displayIcon {
     color: slategray;
@@ -85,51 +84,49 @@ ul {
     font-weight: bold;
 }
 /* Game Controls and Indicators*/
-
-
 /*square number and icon colors*/
-.gameboard [data-squarehelper*="1"] {
+.gameBoard [data-squarehelper*="1"] {
     color: deepskyblue;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="2"] {
+.gameBoard [data-squarehelper*="2"] {
     color: green;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="3"] {
+.gameBoard [data-squarehelper*="3"] {
     color: red;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="4"] {
+.gameBoard [data-squarehelper*="4"] {
     color: darkblue;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="5"] {
+.gameBoard [data-squarehelper*="5"] {
     color: maroon;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="6"] {
+.gameBoard [data-squarehelper*="6"] {
     color: teal;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="7"] {
+.gameBoard [data-squarehelper*="7"] {
     color: sienna;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="8"] {
+.gameBoard [data-squarehelper*="8"] {
     color: darkred;
     font-weight: bold;
 }
-.gameboard [data-squarehelper*="flag"] {
+.gameBoard [data-squarehelper*="flag"] {
     color: red;
 }
-.gameboard [data-squarehelper*="question"] {
+.gameBoard [data-squarehelper*="question"] {
     color: saddlebrown;
 }
-.gameboard [data-squarehelper*="mine"] {
+.gameBoard [data-squarehelper*="mine"] {
     color: black;
 }
-.gameboard [data-squarehelper*="exploded"] {
+.gameBoard [data-squarehelper*="exploded"] {
     color: crimson;
 }
 
@@ -149,9 +146,6 @@ ul {
 }
 
 .divGameLevels input {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
     width: 200px;
     height: 200px;
     float: left;
@@ -182,7 +176,7 @@ ul {
     border: darkslategrey 1px solid !important;    
 }
 
-.gameboard button {
+.gameBoard button {
     background-color: buttonface;
     font-size: 14px;
     float: left;
@@ -195,7 +189,7 @@ ul {
     outline: none;
 }
 
-.gameboard button:hover {
+.gameBoard button:hover {
     border-color: #BBBBBB;
     background-color: #BBBBBB;
 }
@@ -204,5 +198,49 @@ ul {
     margin-top: 5px;
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.72);
 }
-
 /*  http://www.cssmatic.com/border-radius */
+
+
+
+/* jQueryMobile nonsense -  clipped from their css to fix a few UI problems with tags jQuery mobile adds
+    not adding their entire stylesheet because it causes various other problems
+*/
+.ui-mobile-viewport {
+    margin: 0;
+    overflow-x: visible;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body.ui-mobile-viewport,
+div.ui-mobile-viewport {
+    overflow-x: hidden;
+}
+/* "page" containers - full-screen views, one should always be in view post-pageload */
+.ui-mobile [data-role=page],
+.ui-mobile [data-role=dialog],
+.ui-page {
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    border: 0;
+}
+
+.ui-page {
+    outline: none;
+}
+.ui-mobile .ui-page-active {
+    display: block;
+    overflow: hidden;
+
+}
+
+.ui-loader {
+    display: none;
+}
+
+/* End jQuery Mobile nonsense*/
+

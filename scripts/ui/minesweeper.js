@@ -16,6 +16,7 @@
     //Debug board
     if (utils.getQueryStringParams(document.URL).debug) options.debug = true;
 
+    //doc ready
     $(document).ready(function () {
 
         //kill right context menu
