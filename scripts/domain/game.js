@@ -5,9 +5,8 @@
     function Singleton(options) {
 
         var mineCount = options.mines,
-            flagCount = options.mines;
-            //noinspection CommaExpressionJS
-        clearedMineCount = 0,
+            flagCount = options.mines,
+            clearedMineCount = 0,
             columns = options.columns,
             rows = options.rows,
             squareCount = options.squareCount,
