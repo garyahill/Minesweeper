@@ -1,0 +1,246 @@
+body {
+    padding-left: 20px;
+}
+
+ul {
+    color: black;
+}
+
+.gameTitle {
+    color: #3071a9;
+}
+
+.blueText {
+    color: #3071a9;
+}
+
+.icon-red {
+    color: red;
+}
+
+.float-right {
+    margin-right: 5px;
+    float: right;
+}
+
+/* Modals*/
+.modal-Body p {
+    color: black;
+}
+.modalBackgroundAliceBlue {
+    background-color: aliceblue;
+}
+.modalBackgroundLinen {
+    background-color: linen;
+}
+#resultsModal .modal-dialog {
+    width: 500px;
+}
+#optionsModal .modal-dialog {
+    width: 500px;
+}
+#optionsForm, #resultsTable {
+    margin-top: 25px;
+}
+.optionsTextBox {
+    width: 35px;
+}
+.modalCancelButton {
+    width: 95px;
+}
+
+/* Game Controls and Indicators*/
+#divGameBoardControls {
+    width: 315px;
+    float: left;
+}
+#divGameBoardButtons {
+    width: 189px;
+    float: left;
+}
+#divIndicators {
+    width: 126px;
+    float: left;
+    text-align: right;
+}
+#divGameBoardControls .displayIcon {
+    width: 23px;
+    margin-left: 7px;
+    text-align: right;
+    float: left;
+}
+#divGameBoardControls .displayIcon {
+    color: slategray;
+}
+#divGameBoardControls .displayText {
+    width: 32px;
+    text-align: right;
+    float: left;
+    /*background-color: lightblue;  for debugging only*/
+}
+#divIndicators label {
+    margin-top: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+/* Game Controls and Indicators*/
+/*square number and icon colors*/
+.gameBoard [data-squarehelper*="1"] {
+    color: deepskyblue;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="2"] {
+    color: green;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="3"] {
+    color: red;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="4"] {
+    color: darkblue;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="5"] {
+    color: maroon;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="6"] {
+    color: teal;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="7"] {
+    color: sienna;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="8"] {
+    color: darkred;
+    font-weight: bold;
+}
+.gameBoard [data-squarehelper*="flag"] {
+    color: red;
+}
+.gameBoard [data-squarehelper*="question"] {
+    color: saddlebrown;
+}
+.gameBoard [data-squarehelper*="mine"] {
+    color: black;
+}
+.gameBoard [data-squarehelper*="exploded"] {
+    color: crimson;
+}
+
+/* home and new game*/
+#divGameBoardButtons > button {
+    margin-right: 5px;
+    width: 85px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.72);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.72);
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.72);
+}
+
+/* Game Level Buttons*/
+.divGameLevels {
+    width: 411px;
+    float: left;
+}
+
+.divGameLevels input {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    opacity: 0.80;
+    border: 1px solid #000000;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.72);
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.72);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.72);
+}
+
+.divGameLevels input:hover {
+    opacity: 1;
+}
+
+/* Square-Tile Buttons */
+.revealed {
+    background-color: #FFFFFF;  
+    border: darkslategrey 1px solid;  
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+}
+
+.revealed {
+    background-color: white !important;
+    border: darkslategrey 1px solid !important;    
+}
+
+.gameBoard button {
+    background-color: buttonface;
+    font-size: 14px;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -webkit-user-select: none;
+    outline: none;
+}
+
+.gameBoard button:hover {
+    border-color: #BBBBBB;
+    background-color: #BBBBBB;
+}
+
+.about {
+    margin-top: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.72);
+}
+/*  http://www.cssmatic.com/border-radius */
+
+
+
+/* jQueryMobile nonsense -  clipped from their css to fix a few UI problems with tags jQuery mobile adds
+    not adding their entire stylesheet because it causes various other problems
+*/
+.ui-mobile-viewport {
+    margin: 0;
+    overflow-x: visible;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body.ui-mobile-viewport,
+div.ui-mobile-viewport {
+    overflow-x: hidden;
+}
+/* "page" containers - full-screen views, one should always be in view post-pageload */
+.ui-mobile [data-role=page],
+.ui-mobile [data-role=dialog],
+.ui-page {
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    border: 0;
+}
+
+.ui-page {
+    outline: none;
+}
+.ui-mobile .ui-page-active {
+    display: block;
+    overflow: hidden;
+
+}
+
+.ui-loader {
+    display: none;
+}
+
+/* End jQuery Mobile nonsense*/
+
