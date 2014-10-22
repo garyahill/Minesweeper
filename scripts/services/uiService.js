@@ -123,20 +123,13 @@
 
     //PUBLIC METHODS
 
-    var bindEvents = function(uiObject, events, eventHandler) {
-
-        for (var i = 0, len = events.length; i < len; i += 1){
-            uiObject.on(events[i], eventHandler.bind(uiObject));
-        }
+    var bindMouseDownEvent = function (uiObject, eventHandler) {
+        uiObject.on(config.UI.EVENTS.MOUSE_DOWN, eventHandler.bind(uiObject));
     };
 
-//    var bindMouseDownEvent = function (uiObject, eventHandler) {
-//        uiObject.on(config.UI.EVENTS.MOUSE_DOWN, eventHandler.bind(uiObject));
-//    };
-//
-//    var bindTapHoldEvent = function (uiObject, eventHandler) {
-//        uiObject.on(config.UI.EVENTS.TAP_HOLD, eventHandler.bind(uiObject));
-//    };
+    var bindTapHoldEvent = function (uiObject, eventHandler) {
+        uiObject.on(config.UI.EVENTS.TAP_HOLD, eventHandler.bind(uiObject));
+    };
 
     var createDebugSquare = function (squareSize, isMine, adjacentMines) {
 
@@ -282,7 +275,8 @@
         freezeBoardState: freezeBoardState,
         updateTimer: updateTimer,
         updateFlagCount: updateFlagCount,
-        bindEvents: bindEvents,
+        bindMouseDownEvent: bindMouseDownEvent,
+        bindTapHoldEvent: bindTapHoldEvent,
         removeDomItem: removeDomItem,
         showResultsModal: showResultsModal,
         spaceDebugBoard: spaceDebugBoard
